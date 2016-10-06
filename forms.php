@@ -4,6 +4,21 @@
     <title>A Form</title>
 </head>
 <body>
+    <?php
+        if (isset($_POST['submit'])) {
+            //process form
+            printf('Hey there');
+//            printf('User name: %s <br>
+//            Password: %s <br>
+//            Gender: %s <br>
+//            Color: %s <br>
+//            Languages: %s <br>
+//            Comments: %s <br>
+//            Terms and Conditions: %s',
+//                $_POST['name'], $_POST['password'], '', '', '', $_POST['comments'], '');
+        }
+    ?>
+
     <form method="post" action="">
         <div>User name: <input type="text" name="name"></div>
         <div>Password: <input type="password" name="password"></div>
