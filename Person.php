@@ -10,12 +10,13 @@ class Person
 {
     const AVG_LIFE_SPAN = 79;
 
-    public $firstName;
-    public $lastName;
-    public $yearBorn;
+    protected $firstName;
+    protected $lastName;
+    protected $yearBorn;
 
     function __construct($firstName = "", $lastName = "", $yearBorn = 0)
     {
+        echo "Person Constructor".PHP_EOL;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->yearBorn = $yearBorn;
@@ -23,23 +24,31 @@ class Person
 
     public function getFirstName()
     {
-        return $this->firstName;
+        return $this->firstName.PHP_EOL;
     }
     public function setFirstName($newName)
     {
         $this->firstName = $newName;
     }
+    protected function getFullName()
+    {
+        return $this->firstName." ".$this->lastName;
+    }
 }
 
-$myObject = new Person("Alexander", "Luthor", 1939);
+class Author extends Person
+{
+    protected $penName = "Mark Twain";
 
-echo $myObject->firstName."...hmmm, no wait\n";
-$myObject->firstName = "Lena";
-echo $myObject->firstName."\n";
-echo $myObject->lastName."\n";
-echo $myObject->yearBorn."\n";
+    public function getPenName()
+    {
+        return $this->penName.PHP_EOL;
+    }
 
-echo Person::AVG_LIFE_SPAN."\n";
+    public function getCompleteName()
+    {
+        return $this->firstName." ".$this->lastName.", aka, ".$this->penName;
+    }
+}
 
-$myObject->setFirstName("Lex");
-echo $myObject->getFirstName();
+$newAuthor = new Author("Samuel", "Clemens", 1899);
