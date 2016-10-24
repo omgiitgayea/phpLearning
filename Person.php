@@ -10,13 +10,12 @@ class Person
 {
     const AVG_LIFE_SPAN = 79;
 
-    protected $firstName;
-    protected $lastName;
-    protected $yearBorn;
+    private $firstName;
+    private $lastName;
+    private $yearBorn;
 
     function __construct($firstName = "", $lastName = "", $yearBorn = 0)
     {
-        echo "Person Constructor".PHP_EOL;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->yearBorn = $yearBorn;
@@ -38,7 +37,7 @@ class Person
 
 class Author extends Person
 {
-    protected $penName = "Mark Twain";
+    private $penName = "Mark Twain";
 
     public function getPenName()
     {
@@ -47,7 +46,7 @@ class Author extends Person
 
     public function getCompleteName()
     {
-        return $this->firstName." ".$this->lastName.", aka, ".$this->penName;
+        return $this->getFullName().", aka, ".$this->penName;
     }
 }
 
